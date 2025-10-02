@@ -8,6 +8,7 @@ import {
   Mail,
   Moon,
 } from "lucide-react";
+import { NavLinks } from "./navLink";
 
 export function Footer() {
   return (
@@ -45,26 +46,8 @@ export function Footer() {
           {/* Categorias */}
           <div>
             <h4 className="font-semibold text-red-600 mb-6">Categorias</h4>
-            <ul className="space-y-3 text-sm">
-              {[
-                "Terror & Horror",
-                "Fantasia Dark",
-                "Mistério & Suspense",
-                "Ficção Gótica",
-                "Ocultismo",
-                "Thriller Psicológico",
-                "Vampiros & Lobisomens",
-                "Coleções Especiais",
-              ].map((item) => (
-                <li key={item}>
-                  <a href="#" className="hover:text-red-600 transition-colors">
-                    {item}
-                  </a>
-                </li>
-              ))}
-            </ul>
+            <NavLinks direction="col" />
           </div>
-
 
           <div>
             <h4 className="font-semibold text-red-600 mb-6">Atendimento</h4>
