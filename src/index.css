@@ -4,6 +4,8 @@
   font-family: "Inter", sans-serif;
   line-height: 1.5;
   transition: background-color 0.3s, color 0.3s;
+  width: auto;
+  height: auto;
 }
 .ghotic {
   font-family: "Grenze Gotisch", serif;

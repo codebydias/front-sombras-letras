@@ -67,10 +67,10 @@ export default function Home() {
             <div className="flex flex-col sm:flex-row gap-4 mt-6">
               <Button
                 variant={"outline"}
-                className="flex items-center justify-center gap-2 w-full sm:w-auto bg-red-700 hover:bg-red-900 text-white px-6 md:px-8 py-3 rounded-lg transition-colors shadow-lg shadow-gothic-red/20"
+                className="flex items-center justify-center gap-2 w-full sm:w-auto bg-red-700 hover:bg-red-900 text-white px-6 md:px-8 py-3 rounded-lg transition-colors shadow-lg"
               >
                 <Sparkles className="h-5 w-5" />
-                <Link to="/colecoes">Explorar Coleção</Link>
+                <Link to="/colections">Explorar Coleção</Link>
                 <ArrowRight className="h-5 w-5" />
               </Button>
 
@@ -79,7 +79,7 @@ export default function Home() {
                 className="flex items-center justify-center gap-2 w-full sm:w-auto border border-gothic-red text-gothic-red hover:bg-gothic-red hover:text-white px-6 md:px-8 py-3 rounded-lg transition-colors"
               >
                 <Flame className="h-5 w-5" />
-                <Link to="/lancamento" className="flex flex-col">
+                <Link to="/new-releases" className="flex flex-col">
                   Lançamentos
                 </Link>
               </Button>

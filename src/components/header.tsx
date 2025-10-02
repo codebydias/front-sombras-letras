@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { CircleUserRound, LibraryBig, Truck, Tag, Moon } from "lucide-react";
+import { NavLinks } from "./navLink";
 
 export default function Header() {
   const [search, setSearch] = useState("");
@@ -18,13 +19,15 @@ export default function Header() {
 
       <div className="flex items-center justify-between px-4 py-3">
         <Link to="/" className="flex flex-col">
-          <div className="flex flex-col">
-            <h1 className="flex items-center text-2xl font-bold space-x-2">
-              <Moon />
-              <span className="text-3xl">SOMBRAS</span>
-              <span className="text-red-800 text-3xl">& LETRAS</span>
+          <div className="flex flex-col items-start">
+            <h1 className="flex flex-col sm:flex-row sm:items-center text-2xl sm:text-3xl font-bold sm:space-x-2">
+              <Moon className="text-2xl sm:text-3xl" />
+              <span className="text-3xl sm:text-4xl">SOMBRAS</span>
+              <span className="text-red-800 text-3xl sm:text-4xl">
+                & LETRAS
+              </span>
             </h1>
-            <p className="text-xs text-gray-300">
+            <p className="text-xs sm:text-sm text-gray-300 mt-1">
               Onde as trevas encontram a literatura
             </p>
           </div>
@@ -35,7 +38,8 @@ export default function Header() {
           placeholder="Buscar livros sombrios, autores, categorias..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className="flex-1 mx-4 px-3 py-2 rounded bg-gray-800 placeholder-gray-400 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="w-full sm:w-auto flex-1 mx-2 sm:mx-4 px-3 py-2 sm:px-4 sm:py-3 rounded bg-gray-800 placeholder-gray-400 text-white text-sm sm:text-base focus:outline-none focus:ring focus:ring-blue-500 transition-all
+  "
         />
 
         <div className="flex items-center space-x-4">
@@ -45,32 +49,15 @@ export default function Header() {
           </button>
           <button className="relative text-xl cursor-pointer">
             <LibraryBig />
-
           </button>
         </div>
       </div>
 
-    
-      <nav className="flex space-x-6 px-4 py-2 border-t border-gray-700 text-sm text-center justify-center">
-        {[
-          { label: "Lançamentos", slug: "releases" },
-          { label: "Terror & Horror", slug: "horror" },
-          { label: "Fantasia Dark", slug: "dark-fantasy" },
-          { label: "Mistério", slug: "mystery" },
-          { label: "Coleções Especiais", slug: "special-collections" },
-          { label: "Clube do Livro", slug: "book-club" },
-          { label: "Promoções", slug: "deals" },
-          { label: "Sobre nós", slug: "about-us" },
-        ].map(({ label, slug }) => (
-          <Link
-            key={slug}
-            to={`/${slug}`}
-            className="hover:text-blue-400 transition-colors"
-          >
-            {label}
-          </Link>
-        ))}
-      </nav>
+      <NavLinks
+        className="flex flex-wrap justify-center text-center px-2 sm:px-4 py-2 space-x-2 sm:space-x-6 border-t border-gray-700 text-sm sm:text-base
+  "
+        direction="row"
+      />
     </header>
   );
 }
