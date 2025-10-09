@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import { CircleUserRound, LibraryBig, Truck, Tag, Moon } from "lucide-react";
+import { LibraryBig, Truck, Tag, Moon } from "lucide-react";
 import { NavLinks } from "./navLink";
+import UserMenu from "./user-menu";
 
 export default function Header() {
   const [search, setSearch] = useState("");
@@ -43,12 +44,11 @@ export default function Header() {
         />
 
         <div className="flex items-center space-x-4">
-          <button className="text-xl cursor-pointer">
-            {" "}
-            <CircleUserRound />
-          </button>
+          <UserMenu />
           <button className="relative text-xl cursor-pointer">
-            <LibraryBig />
+            <Link to="/libary">
+              <LibraryBig />
+            </Link>
           </button>
         </div>
       </div>
