@@ -5,9 +5,11 @@ import { Footer } from "./components/footer";
 import Auth from "./pages/auth";
 import { Toaster } from "./components/ui/sonner";
 
+
 export default function App() {
   return (
     <BrowserRouter>
+
       <Header />
       <Toaster richColors position="top-center" />
 
@@ -17,6 +19,7 @@ export default function App() {
       </Routes>
 
       <Footer />
+    
     </BrowserRouter>
   );
 }

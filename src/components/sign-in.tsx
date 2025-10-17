@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import axios from "axios";
 import { toast } from "sonner";
+import { useUser } from "@/contexts/user-context";
 
 const signInSchema = z.object({
   email: z.email("E-mail inválido"),
@@ -23,13 +24,17 @@ export default function SignIn() {
   } = useForm<SignInForm>({
     resolver: zodResolver(signInSchema),
   });
+  const { login } = useUser();
 
   const onSubmit = async (data: SignInForm) => {
     try {
       const response = await axios.post(
         `${import.meta.env.VITE_API_URL}/auth/signin`,
-        data
+        data,
+        { withCredentials: true }
       );
+
+      login(response.data.user.email ?? response.data.user);
 
       toast.success("Login realizado com sucesso!", {
         description: response.data.message,
@@ -37,7 +42,7 @@ export default function SignIn() {
     } catch (error: any) {
       const message =
         error.response?.data?.message ||
-        "Erro ao criar conta. Tente novamente.";
+        "Erro ao realizar login. Tente novamente.";
 
       toast.error("Ops! Algo deu errado 😕", {
         description: message,
@@ -81,7 +86,6 @@ export default function SignIn() {
       </div>
 
       <div className="flex items-center justify-between text-sm">
-        
         <a href="#" className="text-red-500 hover:underline">
           Esqueceu a senha?
         </a>
@@ -94,7 +98,6 @@ export default function SignIn() {
       >
         {isSubmitting ? "Entrando..." : "Entrar"}
       </Button>
-
     </form>
   );
 }

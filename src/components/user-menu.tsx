@@ -1,15 +1,16 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { CircleUserRound, LogIn } from "lucide-react";
+import { useUser } from "@/contexts/user-context";
 
 const UserMenu = () => {
   const [open, setOpen] = useState(false);
-  const [loggedIn, setLoggedIn] = useState(false);
+  const { isLogged, logout } = useUser();
 
-  useEffect(() => {
-    const token = localStorage.getItem("token");
-    setLoggedIn(!!token);
-  }, []);
+  const handleLogout = () => {
+    logout();
+    setOpen(false);
+  };
 
   return (
     <div className="relative">
@@ -17,12 +18,12 @@ const UserMenu = () => {
         onClick={() => setOpen(!open)}
         className="text-xl cursor-pointer flex items-center justify-center p-2 rounded hover:bg-gray-700 transition"
       >
-        {loggedIn ? <CircleUserRound /> : <LogIn />}
+        {isLogged ? <CircleUserRound /> : <LogIn />}
       </button>
 
       {open && (
         <div className="absolute right-0 mt-2 w-48 bg-gray-800 text-white rounded shadow-lg z-50">
-          {loggedIn ? (
+          {isLogged ? (
             <ul>
               <li>
                 <Link
@@ -44,10 +45,7 @@ const UserMenu = () => {
               </li>
               <li>
                 <button
-                  onClick={() => {
-                    localStorage.removeItem("token");
-                    setOpen(false);
-                  }}
+                  onClick={handleLogout}
                   className="w-full text-left px-4 py-2 hover:bg-gray-700"
                 >
                   Sair

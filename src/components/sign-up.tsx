@@ -52,6 +52,7 @@ export default function SignUp() {
           description: loginResponse.data.message,
         });
       }
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
       const message =
         error.response?.data?.message ||
