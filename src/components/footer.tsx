@@ -8,7 +8,7 @@ import {
   Mail,
   Moon,
 } from "lucide-react";
-import { NavLinks } from "./navLink";
+import { NavLinks } from "./nav-link";
 
 export function Footer() {
   return (

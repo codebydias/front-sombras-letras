@@ -2,14 +2,14 @@
 import { Link } from "react-router-dom";
 
 const navLinks = [
+  { label: "Promoções", path: "/sales" },
   { label: "Lançamentos", path: "/releases" },
+  { label: "Coleções", path: "/collections" },
   { label: "Terror & Horror", path: "/horror" },
   { label: "Fantasia Dark", path: "/dark-fantasy" },
   { label: "Mistério", path: "/mystery" },
   { label: "Ocultismo", path: "/occultism" },
-  { label: "Coleções Especiais", path: "/special-collections" },
   { label: "Clube do Livro", path: "/book-club" },
-  { label: "Promoções", path: "/deals" },
   { label: "Sobre", path: "/about" },
 ];
 

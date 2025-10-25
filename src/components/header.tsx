@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import { LibraryBig, Truck, Tag, Moon } from "lucide-react";
-import { NavLinks } from "./navLink";
+import { Truck, Tag, Moon } from "lucide-react";
+import { NavLinks } from "./nav-link";
 import UserMenu from "./user-menu";
+import { LibrarySheet } from "./library-sheet";
 
 export default function Header() {
   const [search, setSearch] = useState("");
@@ -45,17 +46,12 @@ export default function Header() {
 
         <div className="flex items-center space-x-4">
           <UserMenu />
-          <button className="relative text-xl cursor-pointer">
-            <Link to="/libary">
-              <LibraryBig />
-            </Link>
-          </button>
+          <LibrarySheet />
         </div>
       </div>
 
       <NavLinks
-        className="flex flex-wrap justify-center text-center px-2 sm:px-4 py-2 space-x-2 sm:space-x-6 border-t border-gray-700 text-sm sm:text-base
-  "
+        className="flex flex-wrap justify-center text-center px-2 sm:px-4 py-2 space-x-2 sm:space-x-6 border-t border-gray-700 text-sm sm:text-base"
         direction="row"
       />
     </header>
