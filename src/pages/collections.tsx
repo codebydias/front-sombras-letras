@@ -125,6 +125,7 @@ export default function Collections() {
                           >
                             <span className="text-sm text-gray-200">
                               {book.subtitle}
+                              <span className="text-red-400"> {formatCurrencyBRL(book.price)}</span>
                             </span>
                             <button
                               onClick={(e) => {
